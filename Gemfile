@@ -7,6 +7,8 @@ ruby '2.3.3'
 
 gem 'active_model_serializers'
 
+gem "warp-cable", git: "https://github.com/Joshua-Miles/warp-cable.git"
+
 
 
 # End ===================================================================================================================================
