@@ -10,9 +10,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_09_28_222718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "documents", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "portfolio_id"
+    t.boolean "isPublic", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_id"], name: "index_documents_on_portfolio_id"
+  end
+
+  create_table "portfolio_documents", force: :cascade do |t|
+    t.bigint "portfolio_id"
+    t.bigint "document_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_portfolio_documents_on_document_id"
+    t.index ["portfolio_id"], name: "index_portfolio_documents_on_portfolio_id"
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string "name"
+    t.string "last_modified"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_portfolios", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "portfolio_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_id"], name: "index_user_portfolios_on_portfolio_id"
+    t.index ["user_id"], name: "index_user_portfolios_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "username"
+    t.string "password_digest"
+    t.string "type"
+    t.boolean "isOnline"
+    t.boolean "isWriter"
+    t.boolean "isAdmin"
+    t.boolean "isAdvisor"
+    t.float "writer_rating"
+    t.float "advisor_rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  add_foreign_key "documents", "portfolios"
+  add_foreign_key "portfolio_documents", "documents"
+  add_foreign_key "portfolio_documents", "portfolios"
+  add_foreign_key "user_portfolios", "portfolios"
+  add_foreign_key "user_portfolios", "users"
 end
