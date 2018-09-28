@@ -5,7 +5,7 @@ ruby '2.3.3'
 
 # Added Gems ============================================================================================================================
 
-gem 'active_model_serializers'
+# gem 'active_model_serializers'
 
 gem "warp-cable", git: "https://github.com/Joshua-Miles/warp-cable.git"
 
@@ -55,5 +55,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "jwt", "~> 2.1"
+
+gem "active_model_serializers", "~> 0.10.7"
 
 gem "faker", "~> 1.9"
