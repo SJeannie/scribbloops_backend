@@ -6,13 +6,14 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :username
       t.string :password_digest
-      t.string :type
-      t.boolean :isOnline
-      t.boolean :isWriter
-      t.boolean :isAdmin
-      t.boolean :isAdvisor
-      t.float :writer_rating
-      t.float :advisor_rating
+      t.string :user_type
+      t.string :education_level, default: 'N/A'
+      t.boolean :isOnline, default: false
+      t.boolean :isWriter, default: false
+      t.boolean :isAdmin, default: false
+      t.boolean :isAdvisor, default: false
+      t.float :writer_rating, default: 5.0
+      t.float :advisor_rating, default: 5.0
 
       t.timestamps
     end
