@@ -13,11 +13,11 @@ UserPortfolio.destroy_all
 User.destroy_all
 
 
-User.create(first_name: 'Pablo', last_name: 'Argueta', email: Faker::Internet.free_email('pabloargueta'), username: "pablo", password_digest: 'grandmaShark', user_type: 'Admin', education_level: 'N/A')
+User.create(first_name: 'Pablo', last_name: 'Argueta', email: Faker::Internet.free_email('pabloargueta'), username: "pablo", password: 'grandmaShark', user_type: 'Admin', education_level: 'N/A')
 
-User.create(first_name: 'Jeannie', last_name: 'Kim', email: Faker::Internet.free_email('jeanniekim'), username: "jeannie", password_digest: 'grandmaShark', user_type: 'Admin', education_level: 'N/A')
+User.create(first_name: 'Jeannie', last_name: 'Kim', email: Faker::Internet.free_email('jeanniekim'), username: "jeannie", password: 'grandmaShark', user_type: 'Admin', education_level: 'N/A')
 
-User.create(first_name: 'Ray', last_name: 'Rodriguez', email: Faker::Internet.free_email('rayrodriguez'), username: "ray", password_digest: 'grandmaShark', user_type: 'Admin', education_level: 'N/A')
+User.create(first_name: 'Ray', last_name: 'Rodriguez', email: Faker::Internet.free_email('rayrodriguez'), username: "ray", password: 'grandmaShark', user_type: 'Admin', education_level: 'N/A')
 
 
 
@@ -42,7 +42,7 @@ while num > 0 do
   fullName = (firstName+lastName).downcase
 
 # byebug
-  User.create(first_name: firstName, last_name: lastName, email: Faker::Internet.free_email(fullName), username: "#{fullName}", password_digest: 'grandmaShark', user_type: user_type, education_level: education_level)
+  User.create(first_name: firstName, last_name: lastName, email: Faker::Internet.free_email(fullName), username: "#{fullName}", password: 'grandmaShark', user_type: user_type, education_level: education_level)
 
   num -= 1
 end
