@@ -19,9 +19,6 @@ class Api::V1::UsersController < ApplicationController
 
   def profile
     render json: { user: UserSerializer.new(current_user) }, status: :accepted
-
-    byebug
-
   end
 
 

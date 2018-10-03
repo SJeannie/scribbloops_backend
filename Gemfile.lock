@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Joshua-Miles/warp-cable.git
-  revision: 26bb922287fe26a2297ffe3ac4687e97775e4dfb
+  revision: cd41fa9d8f95f0d958a87fd7ddbdb55b4f519c9d
   specs:
     warp-cable (0.1.0)
       rails (~> 5.2.1)
