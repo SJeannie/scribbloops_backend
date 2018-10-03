@@ -36,7 +36,7 @@ class DocumentsWarpController < ApplicationWarpController
     end
 
     def document_params
-        params.permit(:title, :content)
+        params.permit(:title, :content, :portfolio_id)
     end
 
 

@@ -7,6 +7,12 @@ class PortfoliosController < ApplicationController
     render json: user.portfolios
   end
 
+  def show
+    portfolio = Portfolio.find(params[:id])
+
+    render json: portfolio, include: [:documents]
+  end
+
   def create
     user = User.find(current_user.id)
     portfolio = Portfolio.create(name: params["portfolio"]["name"])
@@ -18,7 +24,7 @@ class PortfoliosController < ApplicationController
   private
 
   def portfolio_params
-    params.require(:portfolio).permit(:name)
+    params.require(:portfolio).permit(:name, :id)
 
   end
 
