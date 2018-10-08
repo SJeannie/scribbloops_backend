@@ -24,7 +24,6 @@ class ChangesWarpController < ApplicationWarpController
   private
 
   def change_params
-    
-    params.require(:change).permit(:ops, :document_id)
+    params.require(:change).permit(:ops, :document_id, :updated_at)
   end
 end
