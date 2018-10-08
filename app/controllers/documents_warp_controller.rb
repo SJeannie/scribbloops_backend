@@ -35,7 +35,8 @@ class DocumentsWarpController < ApplicationWarpController
         yield document.update(document_params)
     end
 
-    private 
+    private
+    
     def document_params
         params.permit(:title, :content, :portfolio_id)
     end
