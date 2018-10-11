@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_10_06_212721) do
   enable_extension "plpgsql"
 
   create_table "changes", force: :cascade do |t|
-    t.string "ops"
+    t.text "ops"
     t.bigint "document_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
