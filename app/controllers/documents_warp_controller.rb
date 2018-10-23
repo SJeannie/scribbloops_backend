@@ -2,20 +2,20 @@ class DocumentsWarpController < ApplicationWarpController
 
   def index(params)
         Document.after_create do
-            yield Document.all
+            yield Document.where(portfolio_id: params[:portfolio_id])
         end
         Document.after_update do
-            yield Document.all
+            yield Document.where(portfolio_id: params[:portfolio_id])
         end
         Document.after_destroy do
-            yield Document.all
+            yield Document.where(portfolio_id: params[:portfolio_id])
         end
-        yield Document.all
+        yield Document.where(portfolio_id: params[:portfolio_id])
     end
 
     def show(params)
         Document.after_update do | document |
-            if(params[:id] == document.id)
+            if(params[:id].to_i == document.id)
                 yield Document.find(params[:id])
             end
         end
@@ -32,11 +32,12 @@ class DocumentsWarpController < ApplicationWarpController
 
     def update(params)
         document = Document.find(params[:id])
+
         yield document.update(document_params)
     end
 
     private
-    
+
     def document_params
         params.permit(:title, :content, :portfolio_id)
     end

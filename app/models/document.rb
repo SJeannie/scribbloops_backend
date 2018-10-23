@@ -1,3 +1,3 @@
 class Document < ApplicationRecord
-  belongs_to :portfolio, optional: true # TODO: Remove this
+  belongs_to :portfolio
 end

@@ -2,9 +2,7 @@ class PortfoliosController < ApplicationController
   before_action :authorized
 
   def index
-    user = User.find(current_user.id)
-
-    render json: user.portfolios
+    render json: []
   end
 
   def show
