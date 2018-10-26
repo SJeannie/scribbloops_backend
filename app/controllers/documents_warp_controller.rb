@@ -19,7 +19,6 @@ class DocumentsWarpController < ApplicationWarpController
                 yield Document.find(params[:id])
             end
         end
-        yield Document.find(params[:id])
     end
 
     def create(params)
